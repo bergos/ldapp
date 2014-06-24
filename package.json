@@ -1,0 +1,39 @@
+{
+	"name": "ldapp",
+	"version": "0.1.0",
+	"description": "JavaScript Linked Data Stack",
+	"main": "ldapp.js",
+	"scripts": {
+		"test": "mocha"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/bergos/ldapp.git"
+	},
+	"keywords": [
+		"LDApp",
+		"LDP",
+		"RDF",
+		"RDF Interfaces"
+	],
+	"author": "Thomas Bergwinkl",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/bergos/ldapp/issues"
+	},
+	"homepage": "https://github.com/bergos/ldapp",
+	"dependencies": {
+		"es6-promise": ">=0.1.1",
+		"express": "=3.*",
+		"jsonld": ">=0.1.26",
+		"ldp": ">=0.0.1",
+		"n3": ">=0.2.2",
+		"node-forge": ">=0.2.28",
+		"pubkey-login": ">=0.0.1",
+		"rdf_js_interface": ">=0.8.0",
+		"rdf-ext": ">=0.0.1",
+		"rdf-jsonify": ">=0.0.1",
+		"uac": ">=0.0.1"
+	},
+	"readmeFilename": "README.md"
+}

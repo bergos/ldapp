@@ -1,0 +1,35 @@
+@prefix s: <http://schema.org/>.
+
+<#>
+	a s:WebPage;
+	s:about <#blog>.
+
+<#blog>
+	a s:Blog;
+	s:name "bergis blog";
+	s:description "test description";
+	s:blogPost
+		<#2012-03-26-test>,
+		<#2012-04-01-test>.
+
+<#2012-03-26-test>
+	a s:BlogPosting;
+	s:datePublished "2012-03-26T20:00:00Z";
+	s:author <https://www.bergnet.org/people/bergi/card#me>;
+	s:headline "ResourceMe managed WebID";
+	s:articleBody "This is my ResourceMe managed WebID";
+	s:comment
+		<#2012-03-26-test-comment-1>.
+
+<#2012-03-26-test-comment-1>
+	a s:UserComments;
+	s:creator <https://localhost:8443/card#me>;
+	s:commentTime "2012-03-29T10:31:46Z";
+	s:commentText "Find ich voll Klasse!".
+
+<#2012-04-01-test>
+	a s:BlogPosting;
+	s:datePublished "2012-04-01T20:00:00Z";
+	s:author <https://www.bergnet.org/people/bergi/card#me>;
+	s:headline "Test 2";
+	s:articleBody "Second post".

@@ -1,0 +1,70 @@
+@prefix bio: <http://purl.org/vocab/bio/0.1/>.
+@prefix cert: <http://www.w3.org/ns/auth/cert#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix like: <http://ontologi.es/like#>.
+@prefix pingback: <http://purl.org/net/pingback/>.
+@prefix time: <http://www.w3.org/2006/time#>.
+
+
+<#me> a foaf:Person;
+	foaf:name "John Doe";
+	foaf:firstName "John";
+	foaf:lastName "Doe";
+	foaf:nick "Johnny";
+	foaf:birthday "1984-01-31";
+	foaf:img <https://localhost:8443/people/johnny/files/me.jpg>;
+
+	foaf:homepage <https://localhost:8443/people/johnny/>;
+
+	foaf:mbox <mailto:johnny@localhost>;
+
+	foaf:knows <https://localhost:8443/people/example/card#me>;
+
+	foaf:interest
+		<http://dbpedia.org/resource/Semantic_Web>,
+		<http://dbpedia.org/resource/Video_compression>,
+		<http://dbpedia.org/resource/Astronomy>,
+		<http://dbpedia.org/resource/M-theory>,
+		<http://dbpedia.org/resource/Photography>,
+		<http://dbpedia.org/resource/Post-punk>,
+		<http://dbpedia.org/resource/Alternative_rock>,
+		<http://dbpedia.org/resource/Shoegazing>;
+
+	like:likes
+		<http://dbpedia.org/resource/The_Big_Bang_Theory>,
+		<http://dbpedia.org/resource/House_%28TV_series%29>,
+		<http://dbpedia.org/resource/Eels_%28band%29>,
+		<http://dbpedia.org/resource/The_Doors>,
+		<http://dbpedia.org/resource/The_Starry_Night>,
+		<http://dbpedia.org/resource/The_Simpsons>,
+		<http://dbpedia.org/resource/LCD_Soundsystem>,
+		<http://dbpedia.org/resource/I_Heart_Huckabees>,
+		<http://dbpedia.org/resource/Eternal_Sunshine_of_the_Spotless_Mind>,
+		<http://dbpedia.org/resource/Man_on_the_Moon_%28film%29>,
+		<http://dbpedia.org/resource/The_Social_Network>,
+		<http://dbpedia.org/resource/The_Social_Network_%28soundtrack%29>,
+		<http://dbpedia.org/resource/South_Park>,
+		<http://dbpedia.org/resource/Citizen_Kane>,
+		<http://dbpedia.org/resource/Eric_Cartman>,
+		<http://dbpedia.org/resource/Cookie>,
+		<http://dbpedia.org/resource/Fear_and_Loathing_in_Las_Vegas_%28film%29>,
+		<http://dbpedia.org/resource/French_fries>,
+		<http://dbpedia.org/resource/Croquette>,
+		<http://dbpedia.org/resource/Forrest_Gump>;
+
+	bio:event [ a bio:Employment;
+		dct:title "software developer";
+		bio:employer <https://localhost:8443/ldapp#this>;
+		bio:eventInterval [ a bio:Interval;
+			time:after "2012-01";
+			time:before "now";
+		];
+	];
+
+	cert:key [ a cert:RSAPublicKey;
+		cert:exponent 65537;
+		cert:modulus "af1b241a8239e2c2e127a5dd399d84c58a8403e79cecbb8f1113a98df06416c941272cecf7ce356c3a3db9e71846f2ec5c1d736bef276b7db6dbb3dcadd19262ef6daca9024a8dc0ff95de6d31c5354dd66e064e47b7bb192933b5383d02dd5ebea5b46e450d0f10cefb1ed72d3fb6227aafb6145d9f0d432d10448fe415feb5"^^<http://www.w3.org/2001/XMLSchema#hexBinary>
+	];
+
+	pingback:to <https://localhost:8443/people/johnny/pingback>.

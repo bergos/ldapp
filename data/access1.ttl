@@ -1,0 +1,67 @@
+@prefix cert: <http://www.w3.org/ns/auth/cert#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix uac: <http://ns.bergnet.org/uac/0.1/universal-access-control#>.
+
+
+_:auth1 a uac:Authorization;
+	uac:agent <https://www.bergnet.org/people/bergi/card#me>;
+	uac:hasRole
+		_:roleReadWebid,
+		_:roleWriteWebid,
+		_:roleReadProfile
+		.
+
+_:roleReadProfile a uac:Role;
+	uac:access [ a uac:TripleAuthorization;
+		uac:mode uac:Read;
+		uac:filter [ a uac:SimpleFilter;
+			uac:subject <https://localhost:8443/card#me>;
+			uac:predicate foaf:name;
+			uac:predicate foaf:nick;
+			#uac:object "Thomas Bergwinkl";
+		], [ a uac:SimpleFilter;
+			uac:subject <https://localhost:8443/card#me>;
+			uac:predicate foaf:img;
+			#uac:object <https://www.bergnet.org/people/bergi/files/me.jpg>;
+		]
+	].
+
+
+_:roleReadWebid a uac:Role;
+	uac:access [ a uac:TripleAuthorization;
+		uac:mode uac:Read;
+		uac:filter [ a uac:SimpleFilter;
+			uac:predicate cert:key;
+		];
+		uac:children [
+			uac:access [ a uac:TripleAuthorization;
+				uac:mode uac:Read;
+				uac:filter [ a uac:SimpleFilter;
+					uac:predicate rdf:type;
+				], [ a uac:SimpleFilter;
+					uac:predicate cert:modulus;
+					uac:predicate cert:exponent;
+				]
+			];
+		];
+	].
+
+_:roleWriteWebid a uac:Role;
+	uac:access [ a uac:TripleAuthorization;
+		uac:mode uac:Write;
+		uac:filter [ a uac:SimpleFilter;
+			uac:predicate cert:key;
+		];
+		uac:children [
+			uac:access [ a uac:TripleAuthorization;
+				uac:mode uac:Write;
+				uac:filter [ a uac:SimpleFilter;
+					uac:predicate rdf:type;
+				], [ a uac:SimpleFilter;
+					uac:predicate cert:modulus;
+					uac:predicate cert:exponent;
+				]
+			];
+		];
+	].
