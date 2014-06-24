@@ -4,10 +4,22 @@ A JavaScript Linked Data stack/stub.
 
 ## Quick Start Guide
 
-- install the dependencies using npm `npm install`
-- start LDApp `node ldapp.js`
+### Install using npm
+
+- install using npm `npm install ldapp`
+- change folder `cd node_modules/ldapp`
+- start LDApp using npm `npm start` or node `node ldapp.js`
+
+### Install from sources
+
+- clone git repository `git clone https://github.com/bergos/ldapp.git`
+- change to LDApp folder `cd ldapp`
+- install dependencies and run build script using npm `npm install`
+- start LDApp using npm `npm start` or node `node ldapp.js`
+
+### Install WebID certificate 
+
 - import the WebID PKCS12 certificate/key (`data/webid.p12`) in your browser (password `test`)
-- TODO: generate WebID in the browser (setup-URL without authentication)
 
 ### URLs
 
