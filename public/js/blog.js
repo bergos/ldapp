@@ -417,7 +417,7 @@ var BlogApp = function (baseIri, blogIri) {
 
 
 
-Foaf.cachedJsonify = new rdf.CachedJSONify(null, {'corsProxy': 'https://localhost:8443/cors'});
+Foaf.cachedJsonify = new rdf.CachedJSONify(null, {'corsProxy': '//localhost:8443/cors'});
 
 
 var
