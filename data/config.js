@@ -12,6 +12,9 @@ require('rdf-ext')(config.rdf);
 /*config.rdf = new (require('rdf_js_interface')).RDFEnvironment();
 //require('rdf-ext')(config.rdf, {replaceMerge:true});*/
 
+/*config.rdf = require('node-rdf').environment;
+require('rdf-ext')(config.rdf);*/
+
 // persistence store
 config.store = new config.rdf.InMemoryStore();
 
@@ -37,6 +40,7 @@ config.webid = {
 
 // UAC
 config.uac = {
+  'disable': false,
   'graph': 'https://localhost:8443/.access'
 };
 
@@ -47,6 +51,7 @@ config.ldp = {
 
 // tls
 config.tls = {
+  'disable': false,
   'keyFile': './data/localhost.key',
   'certFile': './data/localhost.crt'
 };
