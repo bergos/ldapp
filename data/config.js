@@ -68,7 +68,9 @@ config.session = {
 // core
 config.core = {
   'host': 'localhost',
-  'port': '8443'
+  'port': '8443',
+  'basePath': '',
+  'proxy': false
 };
 
 module.exports = config;
