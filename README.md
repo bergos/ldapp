@@ -2,6 +2,9 @@
 
 A JavaScript Linked Data stack/stub.
 
+The ISWC 2014 paper [LDApp - A JavaScript Linked Data Stack](http://ceur-ws.org/Vol-1268/paper13.pdf) is a good starting
+point to get an overview.
+
 ## Quick Start Guide
 
 ### Install using npm
