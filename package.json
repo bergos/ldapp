@@ -1,39 +1,43 @@
 {
-	"name": "ldapp",
-	"version": "0.1.3",
-	"description": "JavaScript Linked Data Stack",
-	"main": "ldapp.js",
-	"scripts": {
-		"install": "node build.js",
-		"test": "mocha",
-		"start": "node ldapp.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/bergos/ldapp.git"
-	},
-	"keywords": [
-		"LDApp",
-		"LDP",
-		"RDF",
-		"RDF Interfaces"
-	],
-	"author": "Thomas Bergwinkl",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/bergos/ldapp/issues"
-	},
-	"homepage": "https://github.com/bergos/ldapp",
-	"dependencies": {
-		"es6-promise": "=1.*",
-		"express": "=3.*",
-		"ldp": "=0.1.*",
-		"node-forge": "=0.6.*",
-		"pubkey-login": "=0.1.*",
-		"rdf-interfaces": "=0.1.*",
-		"rdf-ext": "=0.1.*",
-		"rdf-jsonify": "=0.1.*",
-		"uac": "=0.1.*"
-	},
-	"readmeFilename": "README.md"
+  "name": "ldapp",
+  "version": "0.1.3",
+  "description": "JavaScript Linked Data Stack",
+  "main": "ldapp.js",
+  "scripts": {
+    "install": "node build.js",
+    "test": "mocha",
+    "start": "node ldapp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bergos/ldapp.git"
+  },
+  "keywords": [
+    "LDApp",
+    "LDP",
+    "RDF",
+    "RDF Interfaces"
+  ],
+  "author": "Thomas Bergwinkl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bergos/ldapp/issues"
+  },
+  "homepage": "https://github.com/bergos/ldapp",
+  "dependencies": {
+    "es6-promise": "=1.*",
+    "express": "=3.*",
+    "express-utils": "=0.1.*",
+    "ldp": "=0.1.*",
+    "node-forge": "=0.6.*",
+    "pubkey-login": "=0.1.*",
+    "rdf-interfaces": "=0.1.*",
+    "rdf-ext": "=0.1.*",
+    "rdf-jsonify": "=0.1.*",
+    "uac": "=0.1.*"
+  },
+  "devDependencies": {
+    "superagent": "0.21.*"
+  },
+  "readmeFilename": "README.md"
 }
