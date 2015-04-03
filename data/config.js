@@ -1,19 +1,15 @@
 'use strict';
 
+
+global.Promise = require('es6-promise').Promise;
+
+
 var
   config = {},
   acceptAllCertsRequest = require('../lib/utils/accept-all-certs-request');
 
 
-// RDF Interfaces implementation + RDF-Ext
-config.rdf = require('rdf-interfaces');
-require('rdf-ext')(config.rdf);
-
-/*config.rdf = new (require('rdf_js_interface')).RDFEnvironment();
-//require('rdf-ext')(config.rdf, {replaceMerge:true});*/
-
-/*config.rdf = require('node-rdf').environment;
-require('rdf-ext')(config.rdf);*/
+config.rdf = require('rdf-ext')();
 
 // persistence store
 config.store = new config.rdf.InMemoryStore();

@@ -25,16 +25,16 @@
   },
   "homepage": "https://github.com/bergos/ldapp",
   "dependencies": {
-    "es6-promise": "=1.*",
-    "express": "=3.*",
-    "express-utils": "=0.1.*",
-    "ldp": "=0.1.*",
-    "node-forge": "=0.6.*",
-    "pubkey-login": "=0.1.*",
-    "rdf-interfaces": "=0.1.*",
-    "rdf-ext": "=0.1.*",
-    "rdf-jsonify": "=0.1.*",
-    "uac": "=0.1.*"
+    "crab-event": "0.0.*",
+    "es6-promise": "2.*",
+    "express": "3.*",
+    "express-utils": "0.1.*",
+    "ldp": "0.1.*",
+    "node-forge": "0.6.*",
+    "pubkey-login": "0.1.*",
+    "rdf-ext": "0.2.*",
+    "rdf-jsonify": "0.1.*",
+    "uac": "0.1.*"
   },
   "devDependencies": {
     "superagent": "0.21.*"

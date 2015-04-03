@@ -25,5 +25,5 @@ coreModule.init()
 
     return app;
   }).catch(function (error) {
-    console.log(error);
+    console.error(error.stack);
   });
