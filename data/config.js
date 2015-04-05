@@ -9,7 +9,17 @@ var
   acceptAllCertsRequest = require('../lib/utils/accept-all-certs-request');
 
 
-config.rdf = require('rdf-ext')();
+// RDF Interfaces implementation + RDF-Ext
+config.rdf = require('rdf-interfaces');
+require('rdf-ext')(config.rdf);
+
+// static file hosting
+config.static = [
+  {
+    route: '/',
+    path: 'public/'
+  }
+];
 
 // persistence store
 config.store = new config.rdf.InMemoryStore();

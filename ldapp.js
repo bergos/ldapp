@@ -3,6 +3,7 @@ var
   express = require('express'),
   coreModule = new (require('./lib/core-module'))(config),
   authNModule = new (require('./lib/authn-module'))(config),
+  staticModule = new (require('./lib/static-module'))(config),
   graphModule = new (require('./lib/graph-module'))(config),
   corsProxyModule = new (require('./lib/cors-proxy-module'))(config),
   listenerModule = new (require('./lib/listener-module'))(config);
@@ -10,7 +11,7 @@ var
 
 coreModule.init()
   .then(function (app) { return authNModule.init(app); })
-  .then(function (app) { app.use(express.static(__dirname + '/public')); return app; })
+  .then(function (app) { return staticModule.init(app); })
   .then(function (app) { return corsProxyModule.init(app, '/cors'); })
   .then(function (app) { return graphModule.init(app); })
   .then(function (app) { return listenerModule.init(app); })
