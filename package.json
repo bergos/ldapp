@@ -32,7 +32,8 @@
     "ldp": "0.1.*",
     "node-forge": "0.6.*",
     "pubkey-login": "0.1.*",
-    "rdf-ext": "0.2.*",
+    "rdf-ext": "^0.2.2",
+    "rdf-interfaces": "^0.1.0",
     "rdf-jsonify": "0.1.*",
     "uac": "0.1.*"
   },
