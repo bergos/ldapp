@@ -10,8 +10,7 @@ var
 
 
 // RDF Interfaces implementation + RDF-Ext
-config.rdf = require('rdf-interfaces');
-require('rdf-ext')(config.rdf);
+config.rdf = require('rdf-ext')();
 
 // static file hosting
 config.static = [
