@@ -2,7 +2,7 @@
 
 var
   config = {},
-  acceptAllCertsRequest = require('../lib/utils/accept-all-certs-request');
+  acceptAllCertsRequest = require('lib/utils/accept-all-certs-request');
 
 
 config.appCtx = {};

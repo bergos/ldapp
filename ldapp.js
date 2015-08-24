@@ -5,10 +5,10 @@ var
 
 
 var loadConfig = function () {
-  if (fs.existsSync('./data/config.js')) {
-    return require('./data/config');
+  if (fs.existsSync('./config.js')) {
+    return require('./config');
   } else {
-    return require('./data/config.default');
+    return require('./config.default');
   }
 };
 
