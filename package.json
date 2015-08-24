@@ -1,6 +1,6 @@
 {
   "name": "ldapp",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "JavaScript Linked Data Stack",
   "main": "ldapp.js",
   "scripts": {
@@ -25,19 +25,16 @@
   },
   "homepage": "https://github.com/bergos/ldapp",
   "dependencies": {
+    "antjs": "^0.1.0",
     "crab-event": "0.0.*",
-    "es6-promise": "2.*",
-    "express": "3.*",
-    "express-utils": "0.1.*",
-    "ldp": "0.1.*",
-    "node-forge": "0.6.*",
-    "pubkey-login": "0.1.*",
-    "rdf-ext": "0.2.*",
-    "rdf-jsonify": "0.1.*",
-    "uac": "0.1.*"
-  },
-  "devDependencies": {
-    "superagent": "0.21.*"
+    "express": "^3.12.0",
+    "express-utils": "^0.1.0",
+    "ldp": "^0.1.1",
+    "node-forge": "^0.6.8",
+    "pubkey-login": "^0.1.0",
+    "rdf-ext": "^0.2.5",
+    "rdf-jsonify": "^0.1.0",
+    "uac": "^0.1.0"
   },
   "readmeFilename": "README.md"
 }

@@ -1,30 +1,25 @@
 var
-  config = require('./data/config'),
-  express = require('express'),
-  coreModule = new (require('./lib/core-module'))(config),
-  authNModule = new (require('./lib/authn-module'))(config),
-  staticModule = new (require('./lib/static-module'))(config),
-  graphModule = new (require('./lib/graph-module'))(config),
-  corsProxyModule = new (require('./lib/cors-proxy-module'))(config),
-  listenerModule = new (require('./lib/listener-module'))(config);
+  antjs = require('antjs'),
+  fs = require('fs'),
+  path = require('path');
 
 
-coreModule.init()
-  .then(function (app) { return authNModule.init(app); })
-  .then(function (app) { return staticModule.init(app); })
-  .then(function (app) { return corsProxyModule.init(app, '/cors'); })
-  .then(function (app) { return graphModule.init(app); })
-  .then(function (app) { return listenerModule.init(app); })
-  .then(function (app) {
-    /*var fs = require('fs');
+var loadConfig = function () {
+  if (fs.existsSync('./data/config.js')) {
+    return require('./data/config');
+  } else {
+    return require('./data/config.default');
+  }
+};
 
-    config.rdf.parseTurtle(fs.readFileSync('./data/access1.ttl').toString(), function (graph) {
-      graphModule.events.add('https://localhost:8443/.access', graph, function (added) {
-        console.log('added: ' + added.toArray().length);
-      });
-    });*/
 
-    return app;
-  }).catch(function (error) {
-    console.error(error.stack);
+var config = loadConfig();
+
+
+antjs.path = path.join(__dirname, 'lib/');
+antjs.debug = process.env.NODE_ENV !== 'production';
+
+antjs.load(config.modules, config)
+  .catch(function (error) {
+    console.error(error.stack || error.message);
   });

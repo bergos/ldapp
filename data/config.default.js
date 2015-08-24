@@ -1,16 +1,48 @@
-'use strict';
-
-
-global.Promise = require('es6-promise').Promise;
-
+/* global rdf */
 
 var
   config = {},
   acceptAllCertsRequest = require('../lib/utils/accept-all-certs-request');
 
 
+config.appCtx = {};
+
+
+config.modules = {
+  core: {
+    module: 'core-module'
+  },
+  authn: {
+    module: 'authn-module',
+    dependency: ['core']
+  },
+  staticHosting: {
+    module: 'static-module',
+    dependency: ['core']
+  },
+  corsProxy: {
+    module: 'cors-proxy-module',
+    dependency: ['core']
+  },
+  graphStore: {
+    module: 'graph-module',
+    dependency: ['core']
+  },
+  listener: {
+    module: 'listener-module',
+    dependency: [
+      'core',
+      'authn',
+      'staticHosting',
+      'corsProxy',
+      'graphStore',
+    ]
+  }
+};
+
+
 // RDF Interfaces implementation + RDF-Ext
-config.rdf = require('rdf-ext')();
+global.rdf = require('rdf-ext')();
 
 // static file hosting
 config.static = [
@@ -21,7 +53,7 @@ config.static = [
 ];
 
 // persistence store
-config.store = new config.rdf.InMemoryStore();
+config.store = new rdf.InMemoryStore();
 
 /*config.store = new config.rdf.SparqlStore({
   'endpointUrl': 'http://localhost:3030/ds/query',
@@ -63,6 +95,7 @@ config.tls = {
 
 // CORS proxy
 config.cors = {
+  path: '/cors',
   'request': acceptAllCertsRequest
 };
 
