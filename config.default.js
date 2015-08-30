@@ -1,35 +1,46 @@
 /* global rdf */
 
-var
-  config = {},
-  acceptAllCertsRequest = require('lib/utils/accept-all-certs-request');
+var acceptAllCertsRequest = require('./lib/utils/accept-all-certs-request');
+
+
+var config = {
+  hostname: 'localhost',
+  port: 8443
+};
 
 
 config.appCtx = {};
 
 
 config.modules = {
+  express: {
+    module: 'ldapp-express'
+  },
+  absoluteUrl: {
+    module: 'ldapp-absolute-url',
+    dependency: 'express'
+  },
   core: {
-    module: 'core-module'
+    dependency: ['absoluteUrl','express']
   },
   authn: {
-    module: 'authn-module',
+    module: 'ldapp-authn',
     dependency: ['core']
   },
   staticHosting: {
-    module: 'static-module',
+    module: 'ldapp-static',
     dependency: ['core']
   },
   corsProxy: {
-    module: 'cors-proxy-module',
+    module: 'ldapp-cors-proxy',
     dependency: ['core']
   },
   graphStore: {
-    module: 'graph-module',
+    module: './lib/graph-module',
     dependency: ['core']
   },
   listener: {
-    module: 'listener-module',
+    module: 'ldapp-listener',
     dependency: [
       'core',
       'authn',
@@ -43,6 +54,14 @@ config.modules = {
 
 // RDF Interfaces implementation + RDF-Ext
 global.rdf = require('rdf-ext')();
+
+// authentication
+config.authn = {
+  StoreClass: rdf.LdpStore,
+  storeOptions: {
+    request: acceptAllCertsRequest
+  }
+};
 
 // static file hosting
 config.static = [
@@ -86,13 +105,6 @@ config.ldp = {
   'defaultAgent': 'https://localhost:8443/anonymous#me'
 };
 
-// tls
-config.tls = {
-  'disable': false,
-  'keyFile': './data/localhost.key',
-  'certFile': './data/localhost.crt'
-};
-
 // CORS proxy
 config.cors = {
   path: '/cors',
@@ -105,10 +117,26 @@ config.session = {
 
 // core
 config.core = {
-  'host': 'localhost',
-  'port': '8443',
   'basePath': '',
   'proxy': false
 };
+
+
+config.expressSettings = {
+  'trust proxy': 'loopback',
+  'x-powered-by': null
+};
+
+
+config.listener = {
+  hostname: config.hostname,
+  port: config.port,
+  tls: {
+    keyFile: './data/localhost.key',
+    certFile: './data/localhost.crt',
+    requestCert: true
+  }
+};
+
 
 module.exports = config;
