@@ -30,6 +30,7 @@
     "express": "^3.12.0",
     "express-utils": "^0.1.0",
     "ldapp-absolute-url": "^0.1.0",
+    "ldapp-app-blog": "^0.1.0",
     "ldapp-authn": "^0.1.0",
     "ldapp-cors-proxy": "^0.1.0",
     "ldapp-express": "^0.1.0",

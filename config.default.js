@@ -39,6 +39,12 @@ config.modules = {
     module: './lib/graph-module',
     dependency: ['core']
   },
+  blogApp: {
+    module: 'ldapp-app-blog'
+  },
+  apps: {
+    dependency: ['blogApp']
+  },
   listener: {
     module: 'ldapp-listener',
     dependency: [
@@ -47,6 +53,7 @@ config.modules = {
       'staticHosting',
       'corsProxy',
       'graphStore',
+      'apps'
     ]
   }
 };
